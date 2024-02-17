@@ -47,4 +47,47 @@ var canPlaceFlowers = function (flowerbed, n) {
     return n == 0;
 };
 
+// Alternate solution
+var canPlaceFlowers2 = function(flowerbed, n) {
+    let count = 0;
+    for(let i = 0; i < flowerbed.length; i++){
+        if(flowerbed[i] == 0 && (flowerbed[i - 1] == 0 || i == 0) && (flowerbed[i + 1] == 0|| i == flowerbed.length - 1)){
+            count++; 
+            flowerbed[i] = 1;
+            if(count >= n) {
+                break;
+            }
+        }
+    }
+    if(count >= n) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+//Alternate solution
+var canPlaceFlowers3 = function(flowerbed, n) {
+    if (n === 0) return true;
+    let i = 0;
+
+    while (i < flowerbed.length) {
+        if (flowerbed[i] === 1) {
+            i += 2;
+        } else {
+            if (!flowerbed[i - 1] && !flowerbed[i + 1]) {
+                n--;
+                if (n === 0) return true;
+
+                flowerbed[i] = 1;
+                i += 2;
+            } else {
+                i++;
+            }
+        }
+    }
+
+    return false;
+};
+
 console.log(canPlaceFlowers([1,0,0,0,1,0,0], 2));
