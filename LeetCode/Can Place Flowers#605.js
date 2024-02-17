@@ -6,7 +6,9 @@
 var canPlaceFlowers = function (flowerbed, n) {
     if (n == 0)
         return true;
+
     let len = flowerbed.length;
+    
     if (len == 1) {
         if (flowerbed[0] == 0) {
             flowerbed[0] = 1;
