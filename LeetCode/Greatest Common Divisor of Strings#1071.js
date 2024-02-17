@@ -18,7 +18,7 @@ var gcdOfStrings = function (str1, str2) {
         }
     }
 
-    return iterator(str1, str2, cstr, minLen, maxLen);
+    return iterator(str1, str2, cstr, minLen);
     
 };
 
