@@ -31,7 +31,7 @@ var iterator = function (str1, str2, cstr, minLen, maxLen) {
         return cstr;
     }
     else {
-        return iterator(str1, str2, cstr.toString().substring(0, cstr.length - 1), minLen, maxLen);
+        return iterator(str1, str2, String(cstr).substring(0, cstr.length - 1), minLen, maxLen);
     }
 }
 
