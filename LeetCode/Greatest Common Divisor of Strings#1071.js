@@ -4,6 +4,11 @@
  * @return {string}
  */
 var gcdOfStrings = function (str1, str2) {
+    if (str1 + str2 !== str2 + str1)
+    {
+        return "";
+    }  
+    
     let minLen = Math.min(str1.length, str2.length);
     let cstr = "";
     for (let i = 0; i < minLen; i++) {
@@ -19,14 +24,13 @@ var gcdOfStrings = function (str1, str2) {
     }
 
     return iterator(str1, str2, cstr, minLen);
-    
 };
 
 var iterator = function (str1, str2, cstr, minLen) {
     if (cstr.length == 0)
         return "";
-    let reg = new RegExp(cstr, "g");
-    if (str1.replace(reg, "").length == 0 && str2.replace(reg, "").length == 0) {
+
+    if (str1.replaceAll(cstr, "").length == 0 && str2.replaceAll(cstr, "").length == 0) {
         return cstr;
     }
     else {
