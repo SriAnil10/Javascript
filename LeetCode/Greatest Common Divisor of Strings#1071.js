@@ -5,7 +5,6 @@
  */
 var gcdOfStrings = function (str1, str2) {
     let minLen = Math.min(str1.length, str2.length);
-    let maxLen = Math.max(str1.length, str2.length);
     let cstr = "";
     for (let i = 0; i < minLen; i++) {
         if (str1[i] == str2[i]) {
@@ -23,7 +22,7 @@ var gcdOfStrings = function (str1, str2) {
     
 };
 
-var iterator = function (str1, str2, cstr, minLen, maxLen) {
+var iterator = function (str1, str2, cstr, minLen) {
     if (cstr.length == 0)
         return "";
     let reg = new RegExp(cstr, "g");
@@ -31,7 +30,7 @@ var iterator = function (str1, str2, cstr, minLen, maxLen) {
         return cstr;
     }
     else {
-        return iterator(str1, str2, String(cstr).substring(0, cstr.length - 1), minLen, maxLen);
+        return iterator(str1, str2, String(cstr).substring(0, cstr.length - 1), minLen);
     }
 }
 
